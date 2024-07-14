@@ -9,3 +9,6 @@ Postgres is used as database.
 - Create, read, update, and delete recipes, ingredients and instructions
 - User authentication with JWT and authorization with simple roles
 - Using Spring Security
+
+## Coming
+It is planned to add Testing in Spring Boot and a frontend application with React.
