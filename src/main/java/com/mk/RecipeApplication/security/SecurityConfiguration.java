@@ -32,6 +32,7 @@ public class SecurityConfiguration {
         this.jwtGenerator = jwtGenerator;
     }
 
+    
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
