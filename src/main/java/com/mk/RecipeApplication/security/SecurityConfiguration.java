@@ -46,7 +46,7 @@ public class SecurityConfiguration {
                 .authorizeRequests()
                 .antMatchers("/authentication/register").permitAll()
                 .antMatchers("/authentication/login").permitAll()
-                .antMatchers("/recipes/**").hasRole("USER")
+                .antMatchers("/recipes/**").permitAll()
                 .antMatchers("/instructions/**").hasRole("USER")
                 .antMatchers("/ingredients/**").hasRole("USER")
                 .antMatchers("/users/**").hasRole("ADMIN")
