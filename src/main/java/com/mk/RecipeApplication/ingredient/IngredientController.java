@@ -27,7 +27,7 @@ public class IngredientController {
     /**
      * Retrieves all ingredients in the database.
      *
-     * @return a list of all ingredients, or a 404 response if no ingredients are found
+     * @return ResponseEntity containing a list of all ingredients, or a 404 response if no ingredients are found
      */
     @GetMapping
     public ResponseEntity<List<Ingredient>> getAllIngredients() {
@@ -40,7 +40,7 @@ public class IngredientController {
      * Retrieves all ingredients associated with a specific recipe.
      *
      * @param recipeId the ID of the recipe
-     * @return a list of ingredients for the given recipe, or a 404 response if none are found
+     * @return ResponseEntity containing a list of ingredients for the given recipe, or a 404 response if none are found
      */
     @GetMapping("/for-recipe/{recipeId}")
     public ResponseEntity<List<Ingredient>> getAllIngredientsByRecipeId(@PathVariable int recipeId) {
@@ -53,7 +53,7 @@ public class IngredientController {
      * Retrieves a single ingredient by its unique ID.
      *
      * @param id the ID of the ingredient
-     * @return the requested ingredient, or a 404 response if it does not exist
+     * @return ResponseEntity containing the requested ingredient, or a 404 response if it does not exist
      */
     @GetMapping("/{id}")
     public ResponseEntity<Ingredient> getIngredientById(@PathVariable int id) {
@@ -67,7 +67,7 @@ public class IngredientController {
      *
      * @param recipeId the ID of the recipe
      * @param ingredients a list of ingredients to create
-     * @return the list of saved ingredients, or a 400 response if creation fails
+     * @return ResponseEntity containing the list of saved ingredients, or a 400 response if creation fails
      */
     @PostMapping("/for-recipe/{recipeId}/list")
     public ResponseEntity<List<Ingredient>> createIngredients(@PathVariable int recipeId, @RequestBody List<Ingredient> ingredients) {
@@ -84,7 +84,7 @@ public class IngredientController {
      *
      * @param recipeId the ID of the recipe
      * @param ingredient the ingredient to create
-     * @return the saved ingredient, or a 400 response if creation fails
+     * @return ResponseEntity containing the saved ingredient, or a 400 response if creation fails
      */
     @PostMapping("/for-recipe/{recipeId}")
     public ResponseEntity<Ingredient> createIngredient(@PathVariable int recipeId, @RequestBody Ingredient ingredient) {
@@ -101,7 +101,7 @@ public class IngredientController {
      *
      * @param recipeId the ID of the recipe
      * @param ingredients a list of updated ingredient data
-     * @return the list of updated ingredients, or a 400 response if the update fails
+     * @return ResponseEntity containing the list of updated ingredients, or a 400 response if the update fails
      */
     @PutMapping("/for-recipe/{recipeId}")
     public ResponseEntity<List<Ingredient>> updateIngredients(@PathVariable int recipeId, @RequestBody List<Ingredient> ingredients) {
@@ -118,7 +118,7 @@ public class IngredientController {
      *
      * @param id the ID of the ingredient to update
      * @param ingredient the updated ingredient data
-     * @return the updated ingredient, or a 400 response if the update fails
+     * @return ResponseEntity containing the updated ingredient, or a 400 response if the update fails
      */
     @PutMapping("/{id}")
     public ResponseEntity<Ingredient> updateIngredient(@PathVariable int id, @RequestBody Ingredient ingredient) {
@@ -134,7 +134,7 @@ public class IngredientController {
      * Deletes all ingredients associated with a specific recipe.
      *
      * @param recipeId the ID of the recipe
-     * @return a 204 response on successful deletion, or a 400 response if the deletion fails
+     * @return ResponseEntity containing a 204 response on successful deletion, or a 400 response if the deletion fails
      */
     @DeleteMapping("/for-recipe/{recipeId}")
     public ResponseEntity<List<Ingredient>> deleteIngredients(@PathVariable int recipeId) {
@@ -150,7 +150,7 @@ public class IngredientController {
      * Deletes a single ingredient by its ID.
      *
      * @param id the ID of the ingredient to delete
-     * @return a 204 response on successful deletion, or a 400 response if the deletion fails
+     * @return ResponseEntity containing a 204 response on successful deletion, or a 400 response if the deletion fails
      */
     @DeleteMapping("/{id}")
     public ResponseEntity<Ingredient> deleteIngredient(@PathVariable int id) {
